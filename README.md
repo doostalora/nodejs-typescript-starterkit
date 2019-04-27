@@ -55,37 +55,7 @@ VS Code will detect and use the TypeScript version you have installed in your `n
 For other editors, make sure you have the corresponding [TypeScript plugin](http://www.typescriptlang.org/index.html#download-links). 
 
 ## Project Structure
-The most obvious difference in a TypeScript + Node project is the folder structure.
-In a TypeScript project, it's best to have separate _source_  and _distributable_ files.
-TypeScript (`.ts`) files live in your `src` folder and after compilation are output as JavaScript (`.js`) in the `dist` folder.
-The `test` and `views` folders remain top level as expected. 
-
-The full folder structure of this app is explained below:
-
-> **Note!** Make sure you have already built the app using `npm run build`
-
-| Name | Description |
-| ------------------------ | --------------------------------------------------------------------------------------------- |
-| **.vscode**              | Contains VS Code specific settings                                                            |
-| **dist**                 | Contains the distributable (or output) from your TypeScript build. This is the code you ship  |
-| **node_modules**         | Contains all your npm dependencies                                                            |
-| **src**                  | Contains your source code that will be compiled to the dist dir                               |
-| **src/config**           | Passport authentication strategies and login middleware. Add other complex config code here   |
-| **src/controllers**      | Controllers define functions that respond to various http requests                            |
-| **src/models**           | Models define Mongoose schemas that will be used in storing and retrieving data from MongoDB  |
-| **src/public**           | Static assets that will be used client side                                                   |
-| **src/types**            | Holds .d.ts files not found on DefinitelyTyped. Covered more in this [section](#type-definition-dts-files)          |
-| **src**/server.ts        | Entry point to your express app                                                               |
-| **test**                 | Contains your tests. Seperate from source because there is a different build process.         |
-| **views**                | Views define how your app renders on the client. In this case we're using pug                 |
-| .env.example             | API keys, tokens, passwords, database URI. Clone this, but don't check it in to public repos. |
-| .travis.yml              | Used to configure Travis CI build                                                             |
-| .copyStaticAssets.ts     | Build script that copies images, fonts, and JS libs to the dist folder                        |
-| jest.config.js           | Used to configure Jest                                                                        |
-| package.json             | File that contains npm dependencies as well as [build scripts](#what-if-a-library-isnt-on-definitelytyped)                          |
-| tsconfig.json            | Config settings for compiling server code written in TypeScript                               |
-| tsconfig.tests.json      | Config settings for compiling tests written in TypeScript                                     |
-| tslint.json              | Config settings for TSLint code style checking                                                |
+explaination coming soon 
 
 ## Building the project
 It is rare for JavaScript projects not to have some kind of build pipeline these days, however Node projects typically have the least amount build configuration. 
@@ -423,5 +393,3 @@ In that file you'll find two sections:
 
 To install or update these dependencies you can use `npm install` or `npm update`.
 
-# Hackathon Starter Project
-A majority of this quick start's content was inspired or adapted from Sahat's excellent [Hackathon Starter project](https://github.com/sahat/hackathon-starter).
