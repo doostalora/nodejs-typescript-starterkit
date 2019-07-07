@@ -16,7 +16,7 @@ import { MONGODB_URI, SESSION_SECRET } from "./util/secrets";
 import { Context } from "./context/context";
 
 // routes
-import bottlesRoutes from "./routes/bottles";
+import itemsRoutes from "./routes/items";
 
 const MongoStore = mongo(session);
 
@@ -65,7 +65,7 @@ app.use(
   express.static(path.join(__dirname, "public"), { maxAge: 31557600000 })
 );
 
-app.use("/polybasket", bottlesRoutes);
+app.use("/polybasket", itemsRoutes);
 
 // init context
 Context.initialize();

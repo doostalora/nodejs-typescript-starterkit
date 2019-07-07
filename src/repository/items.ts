@@ -1,23 +1,23 @@
-import Bottle from "../models/Bottle";
+import Item from "../models/Item";
 const httperror = require("http-errors");
 
-export class BottleRepository {
+export class ItemRepository {
 
     async create(name: string, price: number, quantity: number) {
-        const query = Bottle.findOne({
+        const query = Item.findOne({
             name: name
         });
 
         return query.then(function (doc) {
             if (doc != undefined)
-                throw new httperror(422, "bottles already exists");
+                throw new httperror(422, "items already exists");
             else {
-                const bottle = new Bottle({
+                const item = new Item({
                     "name": name,
                     "quantity": quantity,
                     "price": price
                 });
-                return bottle.save();
+                return item.save();
             }
         });
     }

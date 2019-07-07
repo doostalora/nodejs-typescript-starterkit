@@ -3,13 +3,14 @@ const router = express.Router();
 import { Context } from "../context/context";
 import { Bearer } from "../security/bearer";
 import { ActionManager }  from "../actions/action-manager";
-import { AddBottles } from "../actions/bottles/add-bottles";
+import { AddItem } from "../actions/item/add-item";
+import  { addItemReq }   from "./route-helper/items";
 
-// route /bottles
-router.post("/",  Bearer.handler, function (req, res, next) {
+// route /items
+router.post("/",  Bearer.handler, addItemReq, function (req, res, next) {
     const principal = Context.get();
     const userId = principal.thetokenInfo.userId;
-    const action = new AddBottles(req.body.name, req.body.price, req.body.quantity);
+    const action = new AddItem(req.body.name, req.body.price, req.body.quantity);
     ActionManager.execute(action)
         .then(r => {
         res.json({
@@ -23,7 +24,7 @@ router.post("/",  Bearer.handler, function (req, res, next) {
     });
 
 /*router.get("/:id", Bearer.handler, function (req, res, next) {
-    let action = new GetBottles(req.params.id)
+    let action = new GetItemss(req.params.id)
     ActionManager.execute(action)
         .then(r => {
             res.json(r.map((a) => {

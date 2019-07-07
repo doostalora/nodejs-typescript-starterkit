@@ -1,7 +1,7 @@
-import { BottleRepository } from "../../repository/bottles";
+import { ItemRepository } from "../../repository/items";
 const httperror = require("http-errors");
 
-export class AddBottles {
+export class AddItem {
     name: string;
     price: number;
     quantity: number;
@@ -13,9 +13,9 @@ export class AddBottles {
 
     async execute() {
         try {
-            const bottleRepo = new BottleRepository();
-            const bottle = await bottleRepo.create(this.name, this.price, this.quantity);
-            return bottle;
+            const itemRepo = new ItemRepository();
+            const item = await itemRepo.create(this.name, this.price, this.quantity);
+            return item;
         } catch (error) {
             throw error;
         }
