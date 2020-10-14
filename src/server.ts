@@ -1,22 +1,8 @@
-import errorHandler from "errorhandler";
-
 import app from "./app";
+import env from './environment';
 
-/**
- * Error Handler. Provides full stack - remove for production
- */
-app.use(errorHandler());
+const PORT = env.getPort();
 
-/**
- * Start Express server.
- */
-const server = app.listen(app.get("port"), () => {
-  console.log(
-    "  App is running at http://localhost:%d in %s mode",
-    app.get("port"),
-    app.get("env")
-  );
-  console.log("  Press CTRL-C to stop\n");
+app.listen(PORT, () => {
+   console.log('Express server listening on port ' + PORT);
 });
-
-export default server;
